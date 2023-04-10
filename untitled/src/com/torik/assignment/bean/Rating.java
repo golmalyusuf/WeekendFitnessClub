@@ -6,7 +6,7 @@ public class Rating {
 	private int rating;
 	private String lessonDate;
 
-	public Rating(Customer customer, String lesson, int rating, String lessonDate) {
+	public Rating(Customer customer, String lessonName, int rating, String lessonDate) {
 		this.customer = customer;
 		this.lessonName = lessonName;
 		this.rating = rating;
