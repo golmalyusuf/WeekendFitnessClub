@@ -62,6 +62,7 @@ public class CustomerRatingImpl implements CustomerRating {
                     String lessonRating = reader.readLine();
                     int intLessonRating = Integer.parseInt(lessonRating);
                     if( intLessonRating> 0 &&   intLessonRating<=5) {
+                        System.out.println(" Lesson Found Add Customer Rating "+lessonFound.get().getLessonName());
                         Rating rating = new Rating(customerFound.get(), lessonFound.get().getLessonName(), intLessonRating, lessonDate);
                         listRating.add(rating);
                         System.out.println("Rating for the user successfully added.");

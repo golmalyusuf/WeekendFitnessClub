@@ -21,11 +21,11 @@ public class Rating {
 		this.customer = customer;
 	}
 
-	public String getLesson() {
+	public String getLessonName() {
 		return lessonName;
 	}
 
-	public void setLesson(String lessonName) {
+	public void setLessonName(String lessonName) {
 		this.lessonName = lessonName;
 	}
 

@@ -14,7 +14,7 @@ public class LessonReportImpl implements LessonReports {
         {
             System.out.println("LIS RATING "+ listRating.size());
             listRating.stream().forEach(
-                    rate -> System.out.println(rate.toString()));
+                    rate -> System.out.println(rate.getLessonName()));
 
             /*double avgValue = listRating.stream().filter(
                     rate -> rate.getLesson().equalsIgnoreCase(
