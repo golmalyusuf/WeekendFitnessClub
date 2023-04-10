@@ -13,10 +13,7 @@ import com.torik.assignment.bean.Customer;
 import com.torik.assignment.bean.Lesson;
 import com.torik.assignment.bean.Rating;
 import com.torik.assignment.service.*;
-import com.torik.assignment.serviceImpl.CustomerBookingLessonImpl;
-import com.torik.assignment.serviceImpl.LessonBuilderDirectorImpl;
-import com.torik.assignment.serviceImpl.RegisterCustomerImpl;
-import com.torik.assignment.serviceImpl.SearchFitnessLessonImpl;
+import com.torik.assignment.serviceImpl.*;
 
 public class TheWeekendFitnessClub {
 
@@ -120,6 +117,16 @@ public class TheWeekendFitnessClub {
 					case 10:
 						CustomerBookingLesson customerShowAllBooking = new CustomerBookingLessonImpl();
 						customerShowAllBooking.showAllBookBooking(listOfBooking);
+						SelectionOptions.getSelectionOptions();
+						break;
+					case 11:
+						CustomerRating customerRating = new CustomerRatingImpl();
+						customerRating.addCustomerRating(customerList, listOfLesson, listOfBooking, listOfRating);
+						SelectionOptions.getSelectionOptions();
+						break;
+					case 12:
+						LessonReports lessonReports = new LessonReportImpl();
+						lessonReports.generateLessonReportWithRating(listOfLesson, listOfRating);
 						SelectionOptions.getSelectionOptions();
 						break;
 					default:

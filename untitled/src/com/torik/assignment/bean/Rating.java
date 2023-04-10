@@ -1,24 +1,32 @@
 package com.torik.assignment.bean;
 
 public class Rating {
-	private Customer custoemr;
-	private Lesson lesson;
+	private Customer customer;
+	private String lessonName;
 	private int rating;
+	private String lessonDate;
+
+	public Rating(Customer customer, String lesson, int rating, String lessonDate) {
+		this.customer = customer;
+		this.lessonName = lessonName;
+		this.rating = rating;
+		this.lessonDate = lessonDate;
+	}
 
 	public Customer getCustoemr() {
-		return custoemr;
+		return customer;
 	}
 
-	public void setCustoemr(Customer custoemr) {
-		this.custoemr = custoemr;
+	public void setCustoemr(Customer customer) {
+		this.customer = customer;
 	}
 
-	public Lesson getLesson() {
-		return lesson;
+	public String getLesson() {
+		return lessonName;
 	}
 
-	public void setLesson(Lesson lesson) {
-		this.lesson = lesson;
+	public void setLesson(String lessonName) {
+		this.lessonName = lessonName;
 	}
 
 	public int getRating() {
@@ -29,4 +37,11 @@ public class Rating {
 		this.rating = rating;
 	}
 
+	public String getLessonDate() {
+		return lessonDate;
+	}
+
+	public void setLessonDate(String lessonDate) {
+		this.lessonDate = lessonDate;
+	}
 }
