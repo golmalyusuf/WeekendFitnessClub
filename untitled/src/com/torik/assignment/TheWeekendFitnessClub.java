@@ -129,6 +129,11 @@ public class TheWeekendFitnessClub {
 						lessonReports.generateLessonReportWithRating(listOfLesson, listOfRating);
 						SelectionOptions.getSelectionOptions();
 						break;
+					case 13:
+						LessonReports lessonReportsWithProfit = new LessonReportImpl();
+						lessonReportsWithProfit.generateLessonReportBasedOnIncome(listOfLesson, listOfBooking);
+						SelectionOptions.getSelectionOptions();
+						break;
 					default:
 						System.out.println("Please enter proper numeric value.");
 				}
