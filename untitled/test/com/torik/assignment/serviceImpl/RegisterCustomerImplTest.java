@@ -1,4 +1,4 @@
-package com.torik.assignment.serviceImpl.test;
+package com.torik.assignment.serviceImpl;
 
 import com.torik.assignment.bean.Customer;
 import com.torik.assignment.service.RegisterCustomer;

@@ -52,7 +52,7 @@ public class LessonBuilderDirectorImpl implements LessonBuilderDirector {
 
 		System.out.println("Please Enter Lesson Price For " + lessonName);
 		double lessonPrice = Double.parseDouble(reader.readLine());
-		System.out.println("TSET |" + capacityOfClass + "|");
+
 		LessonBuilder lessonBuilder = new LessonBuilderImpl();
 		lessonBuilder.getLesson();
 		lessonBuilder.setLessonName(lessonName);
