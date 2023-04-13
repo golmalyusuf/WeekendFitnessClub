@@ -18,6 +18,10 @@ public class RegisterCustomerImplTest {
 
     @Test
     public void testAddCustomerToList() throws IOException {
+        String input = "John\n1234567890\n"; // example input with name and mobile number
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
         List<Customer> customerList = new ArrayList<Customer>();
 
         RegisterCustomer registerCustomer = new RegisterCustomerImpl();
@@ -26,6 +30,10 @@ public class RegisterCustomerImplTest {
     }
 
     @Test
-    public void addCustomerToListWithName() {
+    public void TestAddCustomerToListWithName() throws IOException {
+        List<Customer> customerList = new ArrayList<Customer>();
+
+        RegisterCustomer registerCustomer = new RegisterCustomerImpl();
+        registerCustomer.addCustomerToListWithName(customerList, "Torik", "123456");
     }
 }
