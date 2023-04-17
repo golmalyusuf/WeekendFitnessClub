@@ -29,8 +29,6 @@ public class SearchFitnessLessonImpl implements SearchFitnessLesson {
         String weekendName = reader.readLine();
         Format f = new SimpleDateFormat("EEEE");
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        // lessonList.stream().filter(l-> l.getLessonDates().stream().filter(d->
-        //         f.format(d).equalsIgnoreCase("Saturday") || f.format(d).equalsIgnoreCase("Sunday")).forEach(x-> System.out.println(sdf.format(x)))).count();
 
         lessonList.stream().forEach(al -> al.getLessonDates().stream().filter(date -> f.format(date).equalsIgnoreCase(weekendName)).forEach(m-> System.out.println(al.getLessonName()+"    "+sdf.format(m))));
     }

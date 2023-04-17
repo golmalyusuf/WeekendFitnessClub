@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 
@@ -25,13 +26,8 @@ public class LessonBuilderDirectorImplTest {
         LessonBuilderDirector createLesson = new LessonBuilderDirectorImpl();
         createLesson.addLessonsToList(listOfLesson);
 
-        for (Lesson lesson : listOfLesson) {
-            System.out.println(lesson.getLessonName());
-        }
+        int resultSize =    listOfLesson.stream().filter(x-> x.getLessonName().equalsIgnoreCase("YOGA")).collect(Collectors.toList()).size();
+        assertEquals(1, resultSize);
     }
 
-    @Test
-    public void testGetAllLessons() {
-
-    }
 }

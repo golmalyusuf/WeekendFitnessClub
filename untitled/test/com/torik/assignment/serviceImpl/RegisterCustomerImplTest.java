@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 
@@ -27,6 +28,9 @@ public class RegisterCustomerImplTest {
         RegisterCustomer registerCustomer = new RegisterCustomerImpl();
         registerCustomer.addCustomerToList(customerList);
 
+
+        int resultSize =    customerList.stream().filter(x-> x.getCustomerName().equalsIgnoreCase("John") && x.getCusotmerMobileNo().equalsIgnoreCase("1234567890")).collect(Collectors.toList()).size();
+        assertEquals(1, resultSize);
     }
 
     @Test
@@ -35,5 +39,7 @@ public class RegisterCustomerImplTest {
 
         RegisterCustomer registerCustomer = new RegisterCustomerImpl();
         registerCustomer.addCustomerToListWithName(customerList, "Torik", "123456");
+        int resultSize =    customerList.stream().filter(x-> x.getCustomerName().equalsIgnoreCase("Torik") && x.getCusotmerMobileNo().equalsIgnoreCase("123456")).collect(Collectors.toList()).size();
+        assertEquals(1, resultSize);
     }
 }
