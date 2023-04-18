@@ -18,7 +18,7 @@ public class CustomerBookingLessonImpl implements CustomerBookingLesson {
 
 	@Override
 	public void customerBookALesson(List<Customer> listCustomer, List<Lesson> listLesson,
-			List<BookingOrder> bookingList) throws IOException {
+		List<BookingOrder> bookingList) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.println("Please Enter Customer Name: ");
@@ -113,6 +113,7 @@ public class CustomerBookingLessonImpl implements CustomerBookingLesson {
 		if (lessonFound.isPresent() && customerBookingOrder.isPresent()) {
 			customerBookingOrder.get().getListLesson().remove(lessonFound.get());
 			lessonFound.get().setNumOfCustomer(lessonFound.get().getNumOfCustomer() - 1);
+			System.out.println("Course Cancelled");
 		}
 	}
 
@@ -138,18 +139,16 @@ public class CustomerBookingLessonImpl implements CustomerBookingLesson {
 		
 		System.out.println("Please Enter The Fitness Class Name Customer Wants to Change: " + java.util.Arrays.asList(LessonType.values()));
 		String lessonNameToChange = reader.readLine();
-		
+
 		System.out.println("Please Enter The Fitness Class Name Customer Wants to Change With: " + java.util.Arrays.asList(LessonType.values()));
 		String lessonNameToChangeWith = reader.readLine();
-		
 		Optional<Lesson> lessonFoundToChange = listLesson.stream().filter(x -> x.getLessonName().equalsIgnoreCase(lessonNameToChange))
 				.findFirst();
 		
 		Optional<Lesson> lessonFoundToChangeWith = listLesson.stream().filter(x -> x.getLessonName().equalsIgnoreCase(lessonNameToChangeWith))
 				.findFirst();
-		System.out.println("   145 lessonFoundToChange.isPresent() "+lessonFoundToChange.isPresent()+"  "+lessonFoundToChangeWith.isPresent());
+
 		if (lessonFoundToChange.isPresent() && lessonFoundToChangeWith.isPresent() ) {
-			System.out.println("   147 lessonFoundToChange.isPresent() "+lessonFoundToChangeWith.get().getCapacityOfClass());
 			if(lessonFoundToChangeWith.get().getNumOfCustomer() < 5) {
 				List<Lesson> list = customerBookingOrder.get().getListLesson();
 				list.remove(lessonFoundToChange.get());
@@ -166,7 +165,7 @@ public class CustomerBookingLessonImpl implements CustomerBookingLesson {
 	@Override
 	public void showAllBookBooking(List<BookingOrder> bookingList) throws IOException {
 		 System.out.println("Printing all the Bookings for all Customers.");
-		 AtomicInteger countLessons = new AtomicInteger(0);
+		 AtomicInteger countLessons = new AtomicInteger(1);
 		bookingList.stream().forEach(x-> {
 			System.out.println(countLessons.getAndIncrement()+"		"+x.getCustomer().getCustomerName()+"  "+x.getCustomer().getCusotmerMobileNo());
 			x.getListLesson().stream().forEach(lesson -> System.out.println("				"+lesson.getLessonName()));

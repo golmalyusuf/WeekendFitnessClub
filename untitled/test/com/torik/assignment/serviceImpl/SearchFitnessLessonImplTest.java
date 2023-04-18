@@ -50,18 +50,17 @@ public class SearchFitnessLessonImplTest {
     }
 
     @Test
-    public void findFitnessLessonByWeekendName() {
+    public void findFitnessLessonByWeekendName() throws Exception {
+        setLessonsForTest(listOfLesson);
         String weekendName = "Saturday";
         Format f = new SimpleDateFormat("EEEE");
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-        //listOfLesson.stream().forEach(al -> al.getLessonDates().stream().filter(date -> f.format(date).equalsIgnoreCase(weekendName)).collect(Collectors.toList()).size())
-        //listOfLesson.stream().forEach(x-> x.getLessonDates().stream().filter(date-> f.format(date).equalsIgnoreCase(weekendName)).collect(Collectors.toList())).
-        long count = listOfLesson.stream()
-                .flatMap(lesson -> lesson.getLessonDates().stream()) // flattening the list of Person objects
-                .map( Lesson ::getLessonDates) // extracting the name of each Person object
-                .filter(name -> name.equals(weekendName)) // filtering for the target name
-                .count();
-        assertEquals(1, resultSize);
+        List<Date> dateList = new ArrayList<>();
+        listOfLesson.stream().forEach(al -> al.getLessonDates().stream().filter(date -> f.format(date).equalsIgnoreCase(weekendName)).forEach(d->  dateList.add(d)));
+
+        listOfLesson.stream().forEach(x-> x.getLessonDates().toString() );
+
+        assertTrue("Lesson date size  is 2 should and the search date size is  "+dateList.size(), dateList.size() == 2);
     }
 }

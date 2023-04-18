@@ -13,8 +13,6 @@ public class LessonReportImpl implements LessonReports {
     public void generateLessonReportWithRating(List<Lesson> listLesson, List<Rating> listRating) {
         listLesson.stream().forEach(lesson ->
         {
-            listRating.stream().forEach(
-                    rate -> System.out.println(rate.getLessonName()));
 
             double avgValue = listRating.stream().filter(
                             rate -> rate.getLessonName().equalsIgnoreCase(
