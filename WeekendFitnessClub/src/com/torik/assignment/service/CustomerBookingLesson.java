@@ -18,7 +18,8 @@ public interface CustomerBookingLesson {
 	public void customerChangeBookBooking(List<Customer> listCustomer, List<Lesson> listLesson,
 			List<BookingOrder> bookingList) throws IOException;
 	
-	public void showAllBookBooking(List<BookingOrder> bookingList) throws IOException;
-	
+	public void showAllBooking(List<BookingOrder> bookingList) throws IOException;
 
+
+	void setCustomerAttendanceModification(List<Customer> customerList, List<Lesson> listOfLesson, List<BookingOrder> listOfBooking) throws IOException;
 }

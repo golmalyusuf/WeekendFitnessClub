@@ -92,12 +92,18 @@ public class TheWeekendFitnessClub {
 		List<Lesson> forCustomerCLessonList = new ArrayList<>();
 		forCustomerCLessonList.add(l1);
 		bookingOrder.setListLesson(forCustomerCLessonList);
+		Map<String, String> statusMap1 = new HashMap<String,String>();
+		statusMap1.put(l1.getLessonName(), "Booked");
+		bookingOrder.setStatusMap(statusMap1);
 
 		BookingOrder bookingOrder2 = new BookingOrder();
 		bookingOrder2.setCustomer(c2);
 		List<Lesson> forCustomerCLessonList2 = new ArrayList<>();
 		forCustomerCLessonList2.add(l2);
 		bookingOrder2.setListLesson(forCustomerCLessonList2);
+		Map<String, String> statusMap2 = new HashMap<String,String>();
+		statusMap2.put(l2.getLessonName(), "Booked");
+		bookingOrder2.setStatusMap(statusMap2);
 
 		listOfBooking.add(bookingOrder);
 		listOfBooking.add(bookingOrder2);
@@ -146,36 +152,41 @@ public class TheWeekendFitnessClub {
 						SelectionOptions.getSelectionOptions();
 						break;
 					case 8:
+						CustomerBookingLesson customerAttendanceModification = new CustomerBookingLessonImpl();
+						customerAttendanceModification.setCustomerAttendanceModification(customerList, listOfLesson, listOfBooking);
+						SelectionOptions.getSelectionOptions();
+						break;
+					case 9:
 						CustomerBookingLesson customerCancelBooking = new CustomerBookingLessonImpl();
 						customerCancelBooking.customerCancelBookBooking(customerList, listOfLesson, listOfBooking);
 						SelectionOptions.getSelectionOptions();
 						break;
-					case 9:
+					case 10:
 						CustomerBookingLesson customerChangeBooking = new CustomerBookingLessonImpl();
 						customerChangeBooking.customerChangeBookBooking(customerList, listOfLesson, listOfBooking);
 						SelectionOptions.getSelectionOptions();
 						break;
-					case 10:
+					case 11:
 						CustomerBookingLesson customerShowAllBooking = new CustomerBookingLessonImpl();
-						customerShowAllBooking.showAllBookBooking(listOfBooking);
+						customerShowAllBooking.showAllBooking(listOfBooking);
 						SelectionOptions.getSelectionOptions();
 						break;
-					case 11:
+					case 12:
 						CustomerRating customerRating = new CustomerRatingImpl();
 						customerRating.addCustomerRating(customerList, listOfLesson, listOfBooking, listOfRating);
 						SelectionOptions.getSelectionOptions();
 						break;
-					case 12:
+					case 13:
 						LessonReports lessonReports = new LessonReportImpl();
 						lessonReports.generateLessonReportWithRating(listOfLesson, listOfRating);
 						SelectionOptions.getSelectionOptions();
 						break;
-					case 13:
+					case 14:
 						LessonReports lessonReportsWithProfitMonthly = new LessonReportImpl();
 						lessonReportsWithProfitMonthly.generateLessonReportBasedOnMonthlyIncome(listOfLesson, listOfBooking);
 						SelectionOptions.getSelectionOptions();
 						break;
-					case 14:
+					case 15:
 						LessonReports lessonReportsWithProfit = new LessonReportImpl();
 						lessonReportsWithProfit.generateLessonReportBasedOnIncome(listOfLesson, listOfBooking);
 						SelectionOptions.getSelectionOptions();

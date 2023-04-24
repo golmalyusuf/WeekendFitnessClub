@@ -44,7 +44,11 @@ public class LessonReportImpl implements LessonReports {
                         (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
 
-        sortedMap.forEach((x, y) -> System.out.println("Lesson " + x + "  Profit " + y));
+       // sortedMap.forEach((x, y) -> System.out.println("Lesson " + x + "  Profit " + y));
+        Map.Entry<String,Double> entry = sortedMap.entrySet().iterator().next();
+        String key = entry.getKey();
+        double value = entry.getValue();
+        System.out.println("Highest profitable lesson is " + key + " and net  profit " + value);
     }
 
     @Override

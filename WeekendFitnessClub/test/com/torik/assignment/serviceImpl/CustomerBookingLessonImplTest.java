@@ -117,6 +117,6 @@ public class CustomerBookingLessonImplTest {
 
 
         CustomerBookingLesson customerBookings = new CustomerBookingLessonImpl();
-        customerBookings.showAllBookBooking(listOfBooking);
+        customerBookings.showAllBooking(listOfBooking);
     }
 }
