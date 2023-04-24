@@ -81,7 +81,7 @@ public class TheWeekendFitnessClub {
 		l2.setCapacityOfClass(5);
 		l2.setLessionDates(Arrays.asList(dateArr) );
 		l2.setPrice(120);
-		l2.setLessonName("Yoga");
+		l2.setLessonName("YOGA");
 		l2.setMaxWeeklysession(4);
 		l2.setNumOfCustomer(1);
 		listOfLesson.add(l1);

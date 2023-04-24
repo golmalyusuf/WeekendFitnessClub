@@ -22,7 +22,7 @@ public class SelectionOptions {
 		System.out.println("13. Show Average Rating of the Lessons");
 		System.out.println("14. Generate revenue monthly report of the Lessons ");
 		System.out.println("15. Generate monthly champion of the Lessons ");
-		System.out.println("16. Generate revenue overall report of the Lessons ");
+		//System.out.println("16. Generate revenue overall report of the Lessons ");
 		
 		System.out.println("==============================================================================================");
 		System.out.println();

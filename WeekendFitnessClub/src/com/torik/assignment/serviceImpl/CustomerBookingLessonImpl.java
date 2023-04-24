@@ -64,6 +64,10 @@ public class CustomerBookingLessonImpl implements CustomerBookingLesson {
                     List<Lesson> newLessonList = bookingOrderForCustomer.get().getListLesson();
                     newLessonList.add(lessonFound.get());
                     bookingOrder.setListLesson(newLessonList);
+                    Map<String, String> map = bookingOrderForCustomer.get().getStatusMap();
+                    map.put(lessonFound.get().getLessonName(), "Booked");
+
+                    bookingOrder.setStatusMap(map);
                     lessonFound.get().setNumOfCustomer(lessonFound.get().getNumOfCustomer() + 1);
                     System.out.println(customerName + " Customer enrolled successfully!!!");
                 }
@@ -72,6 +76,10 @@ public class CustomerBookingLessonImpl implements CustomerBookingLesson {
                 List<Lesson> newLessonList = new ArrayList<Lesson>();
                 newLessonList.add(lessonFound.get());
                 bookingOrder.setListLesson(newLessonList);
+                Map<String, String> map = new HashMap<>();
+                map.put(lessonFound.get().getLessonName(), "Booked");
+
+                bookingOrder.setStatusMap(map);
                 bookingList.add(bookingOrder);
                 lessonFound.get().setNumOfCustomer(lessonFound.get().getNumOfCustomer() + 1);
 
@@ -198,12 +206,11 @@ public class CustomerBookingLessonImpl implements CustomerBookingLesson {
             List<Lesson> list = customerBookingOrder.get().getListLesson();
             list.forEach(x -> System.out.println(x.getLessonName()));
 
-            /*System.out.println("Please enter a lesson name to modify customer attendance status: ");
-            String customerAttendanceLessonname = reader.readLine();
-*/
+
             System.out.println("Please update customer attendance status: (Booked, Attended, Cancelled, Changed)");
             String customerAttendanceLessonStatus = reader.readLine();
             Map map = customerBookingOrder.get().getStatusMap();
+
             map.put(lessonNameToUpdateAttendanceStatus, customerAttendanceLessonStatus);
             customerBookingOrder.get().setStatusMap(map);
             System.out.println("Customer's attendance status update successful");
